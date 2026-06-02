@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Naveen Prabaharan — Supply Chain & Logistics Analyst</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f6f1e7;
+    --paper-2:#efe8da;
+    --ink:#16243b;
+    --ink-soft:#3a4a63;
+    --muted:#6b7689;
+    --accent:#1e54c7;
+    --accent-2:#b9531f;
+    --line:#d8cfbd;
+    --line-strong:#16243b;
+    --max:1120px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Archivo',sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  body::before{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.5;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  }
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 28px;position:relative;z-index:1}
+  a{color:inherit;text-decoration:none}
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(246,241,231,.82);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .brand{font-family:'Fraunces',serif;font-weight:600;font-size:18px;letter-spacing:.01em}
+  .brand span{color:var(--accent)}
+  .navlinks{display:flex;gap:26px;font-size:13.5px;font-weight:500;letter-spacing:.02em}
+  .navlinks a{color:var(--ink-soft);transition:color .2s}
+  .navlinks a:hover{color:var(--accent)}
+  @media(max-width:680px){.navlinks{display:none}}
+
+  /* ---------- HERO ---------- */
+  header.hero{padding:78px 0 64px;border-bottom:1px solid var(--line)}
+  .eyebrow{
+    font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--accent);margin-bottom:22px;
+    display:flex;align-items:center;gap:12px;
+    opacity:0;animation:rise .7s .05s forwards;
+  }
+  .eyebrow::after{content:"";flex:1;height:1px;background:var(--line);max-width:140px}
+  h1.name{
+    font-family:'Fraunces',serif;font-weight:600;
+    font-size:clamp(44px,8vw,86px);line-height:.98;letter-spacing:-.02em;
+    color:var(--ink);margin-bottom:18px;
+    opacity:0;animation:rise .7s .12s forwards;
+  }
+  .role{
+    font-size:clamp(17px,2.4vw,22px);color:var(--ink-soft);font-weight:500;
+    max-width:640px;margin-bottom:30px;
+    opacity:0;animation:rise .7s .2s forwards;
+  }
+  .role b{color:var(--ink);font-weight:600}
+  .contactbar{
+    display:flex;flex-wrap:wrap;gap:10px;
+    opacity:0;animation:rise .7s .28s forwards;
+  }
+  .chip{
+    display:inline-flex;align-items:center;gap:8px;
+    border:1px solid var(--line);border-radius:999px;
+    padding:9px 16px;font-size:13.5px;font-weight:500;color:var(--ink-soft);
+    background:rgba(255,255,255,.4);transition:all .2s;
+  }
+  .chip:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-1px)}
+  .chip svg{width:15px;height:15px;flex-shrink:0}
+
+  /* ---------- SECTION SHELL ---------- */
+  section{padding:64px 0;border-bottom:1px solid var(--line)}
+  .sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:38px}
+  .sec-num{font-family:'Fraunces',serif;font-style:italic;font-size:20px;color:var(--accent);opacity:.8}
+  h2{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(26px,4vw,38px);letter-spacing:-.01em;line-height:1.05}
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:48px;align-items:start}
+  @media(max-width:760px){.about-grid{grid-template-columns:1fr;gap:34px}}
+  .lede{font-size:clamp(18px,2.3vw,21px);color:var(--ink-soft);line-height:1.6}
+  .lede b{color:var(--ink);font-weight:600}
+  .quickfacts{border-left:2px solid var(--line-strong);padding-left:22px}
+  .qf-item{margin-bottom:18px}
+  .qf-item:last-child{margin-bottom:0}
+  .qf-label{font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:3px}
+  .qf-val{font-size:15.5px;font-weight:500;color:var(--ink)}
+
+  /* ---------- METRICS ---------- */
+  .metrics{background:var(--ink);color:var(--paper);border-bottom:none}
+  .metrics::before{content:none}
+  .metrics .sec-num{color:#7fa0e6}
+  .metrics h2{color:var(--paper)}
+  .metrics .sec-head h2 + p{color:#aebbd0}
+  .mgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.12)}
+  @media(max-width:680px){.mgrid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:440px){.mgrid{grid-template-columns:1fr}}
+  .mcell{background:var(--ink);padding:34px 26px;transition:background .25s}
+  .mcell:hover{background:#1d3050}
+  .mnum{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(36px,5.5vw,52px);line-height:1;color:#fff;letter-spacing:-.01em}
+  .mnum span{color:#7fa0e6;font-size:.6em}
+  .mlabel{margin-top:12px;font-size:13.5px;color:#aebbd0;line-height:1.45;font-weight:500}
+
+  /* ---------- SKILLS ---------- */
+  .skill-block{display:grid;grid-template-columns:200px 1fr;gap:28px;padding:22px 0;border-top:1px solid var(--line)}
+  .skill-block:first-of-type{border-top:none}
+  @media(max-width:620px){.skill-block{grid-template-columns:1fr;gap:12px}}
+  .skill-cat{font-family:'Fraunces',serif;font-weight:600;font-size:19px;color:var(--ink)}
+  .pills{display:flex;flex-wrap:wrap;gap:8px}
+  .pill{
+    font-size:13px;font-weight:500;color:var(--ink-soft);
+    background:var(--paper-2);border:1px solid var(--line);
+    padding:6px 13px;border-radius:6px;transition:all .18s;
+  }
+  .pill:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+
+  /* ---------- EXPERIENCE ---------- */
+  .job{display:grid;grid-template-columns:160px 1fr;gap:32px;padding:30px 0;border-top:1px solid var(--line)}
+  .job:first-of-type{border-top:none}
+  @media(max-width:680px){.job{grid-template-columns:1fr;gap:10px}}
+  .job-when{font-size:13px;font-weight:600;letter-spacing:.04em;color:var(--accent);padding-top:5px}
+  .job-title{font-family:'Fraunces',serif;font-weight:600;font-size:21px;color:var(--ink);line-height:1.2}
+  .job-co{font-size:14.5px;font-weight:600;color:var(--ink-soft);margin:3px 0 16px}
+  .job-co .loc{font-weight:400;color:var(--muted)}
+  .job ul{list-style:none;display:flex;flex-direction:column;gap:11px}
+  .job li{position:relative;padding-left:22px;font-size:15px;color:var(--ink-soft);line-height:1.55}
+  .job li::before{content:"";position:absolute;left:0;top:9px;width:7px;height:7px;background:var(--accent);transform:rotate(45deg)}
+  .job li b{color:var(--ink);font-weight:600}
+
+  /* ---------- EDUCATION + CERTS ---------- */
+  .ec-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+  @media(max-width:680px){.ec-grid{grid-template-columns:1fr;gap:36px}}
+  .edu-item{padding-bottom:18px;margin-bottom:18px;border-bottom:1px solid var(--line)}
+  .edu-item:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+  .edu-deg{font-family:'Fraunces',serif;font-weight:600;font-size:18px;color:var(--ink);line-height:1.25}
+  .edu-meta{font-size:14px;color:var(--ink-soft);margin-top:4px}
+  .edu-meta .gpa{color:var(--accent-2);font-weight:600}
+  .cert-list{display:flex;flex-direction:column;gap:14px}
+  .cert{display:flex;align-items:flex-start;gap:13px}
+  .cert-mark{font-family:'Fraunces',serif;font-style:italic;color:var(--accent);font-size:16px;line-height:1.4;flex-shrink:0}
+  .cert-name{font-size:15px;font-weight:500;color:var(--ink)}
+
+  /* ---------- CONTACT / CTA ---------- */
+  .cta{text-align:center;padding:84px 0;border-bottom:none}
+  .cta h2{font-size:clamp(30px,5vw,48px);margin-bottom:18px}
+  .cta p{font-size:17px;color:var(--ink-soft);max-width:520px;margin:0 auto 34px}
+  .cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+  .btn{
+    display:inline-flex;align-items:center;gap:9px;
+    padding:15px 28px;border-radius:8px;font-weight:600;font-size:15px;
+    transition:all .22s;
+  }
+  .btn-primary{background:var(--ink);color:var(--paper)}
+  .btn-primary:hover{background:var(--accent);transform:translateY(-2px);box-shadow:0 10px 26px rgba(30,84,199,.28)}
+  .btn-ghost{border:1px solid var(--line-strong);color:var(--ink)}
+  .btn-ghost:hover{background:var(--ink);color:var(--paper);transform:translateY(-2px)}
+  .btn svg{width:17px;height:17px}
+
+  footer{padding:28px 0;text-align:center;font-size:13px;color:var(--muted)}
+
+  /* ---------- ANIMATIONS ---------- */
+  @keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:translateY(0)}
+
+  /* ---------- PRINT ---------- */
+  @media print{
+    nav,.cta,footer,body::before{display:none}
+    body{background:#fff;color:#000}
+    section{page-break-inside:avoid;padding:18px 0;border-color:#ccc}
+    .metrics{background:#fff;color:#000}
+    .metrics h2,.mnum{color:#000}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="brand">Naveen<span>.</span></div>
+    <div class="navlinks">
+      <a href="#about">About</a>
+      <a href="#impact">Impact</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Supply Chain &amp; Logistics &middot; Houston, TX</div>
+    <h1 class="name">Naveen<br>Prabaharan</h1>
+    <p class="role"><b>Supply Chain &amp; Inventory Planning Analyst</b> turning demand signals, master data, and ERP into plans leadership can act on — across manufacturing and import-logistics environments.</p>
+    <div class="contactbar">
+      <a class="chip" href="mailto:naveenprabaharan28@gmail.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
+        naveenprabaharan28@gmail.com
+      </a>
+      <a class="chip" href="tel:+18329306099">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        (832) 930-6099
+      </a>
+      <!-- EDIT: replace # with your real LinkedIn URL -->
+      <a class="chip" href="#" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zM8.34 18.34V10.2H5.66v8.14h2.68zM7 9.03a1.55 1.55 0 1 0 0-3.1 1.55 1.55 0 0 0 0 3.1zm11.34 9.31v-4.46c0-2.39-1.28-3.5-2.98-3.5-1.37 0-1.98.75-2.33 1.28v-1.1h-2.67c.04.76 0 8.14 0 8.14h2.67v-4.55c0-.24.02-.48.09-.65.19-.48.63-.98 1.36-.98.96 0 1.35.73 1.35 1.8v4.38h2.51z"/></svg>
+        LinkedIn
+      </a>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">01</span><h2>About</h2></div>
+    <div class="about-grid">
+      <p class="lede">Supply chain analyst with a <b>4.0 M.S. in Supply Chain &amp; Logistics Management</b> and hands-on planning experience across multi-SKU industrial and import-logistics operations. I treat <b>master data as the foundation</b> — reconciling system records to physical reality before trusting any plan a tool produces — and I build the Power BI and SQL views that turn planning noise into performance leadership can act on. Comfortable owning demand patterns, MRP parameters, and KPI reporting end-to-end, with a bias toward standardizing processes so the next planner can run them the same way.</p>
+      <div class="quickfacts">
+        <div class="qf-item"><div class="qf-label">Based in</div><div class="qf-val">Houston, Texas</div></div>
+        <div class="qf-item"><div class="qf-label">Focus</div><div class="qf-val">Demand &amp; Inventory Planning · Supply Chain Analytics</div></div>
+        <div class="qf-item"><div class="qf-label">Core Systems</div><div class="qf-val">SAP S/4HANA · SNP/APO · Power BI · SQL</div></div>
+        <div class="qf-item"><div class="qf-label">Credentials</div><div class="qf-val">CSCP · Lean Six Sigma Green Belt</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="impact" class="metrics">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">02</span><h2>Impact in Numbers</h2></div>
+    <div class="mgrid">
+      <div class="mcell"><div class="mnum"><span>$</span>1.2<span>M</span></div><div class="mlabel">Excess inventory reduced through SAP S/4HANA demand &amp; supply planning</div></div>
+      <div class="mcell"><div class="mnum">98<span>%+</span></div><div class="mlabel">Inventory accuracy sustained across multi-SKU product lines</div></div>
+      <div class="mcell"><div class="mnum">12<span>+</span></div><div class="mlabel">Supply chain KPIs tracked in Power BI dashboards for leadership</div></div>
+      <div class="mcell"><div class="mnum">30<span>%</span></div><div class="mlabel">Reduction in material shortfalls via MRP &amp; capacity planning</div></div>
+      <div class="mcell"><div class="mnum">18&ndash;22<span>%</span></div><div class="mlabel">Cycle-time cut on inbound &amp; documentation workflows with Lean / Six Sigma</div></div>
+      <div class="mcell"><div class="mnum">4.0<span>/4</span></div><div class="mlabel">GPA, M.S. Supply Chain &amp; Logistics, University of Houston</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">03</span><h2>Capabilities</h2></div>
+    <div class="skill-block">
+      <div class="skill-cat">Planning</div>
+      <div class="pills">
+        <span class="pill">Demand Planning &amp; Forecasting</span>
+        <span class="pill">Inventory Strategy &amp; Optimization</span>
+        <span class="pill">MRP / MPS</span>
+        <span class="pill">Capacity Planning</span>
+        <span class="pill">S&amp;OP Support</span>
+        <span class="pill">Safety Stock &amp; Reorder Points</span>
+      </div>
+    </div>
+    <div class="skill-block">
+      <div class="skill-cat">Systems &amp; Analytics</div>
+      <div class="pills">
+        <span class="pill">SAP S/4HANA</span>
+        <span class="pill">SNP / APO</span>
+        <span class="pill">Master Data Management</span>
+        <span class="pill">Power BI</span>
+        <span class="pill">SQL</span>
+        <span class="pill">Tableau</span>
+        <span class="pill">Advanced Excel (Power Query)</span>
+      </div>
+    </div>
+    <div class="skill-block">
+      <div class="skill-cat">Methods</div>
+      <div class="pills">
+        <span class="pill">Lean</span>
+        <span class="pill">Six Sigma (Green Belt)</span>
+        <span class="pill">Continuous Improvement</span>
+        <span class="pill">Root Cause Analysis</span>
+        <span class="pill">Process Standardization</span>
+        <span class="pill">KPI Development</span>
+      </div>
+    </div>
+    <div class="skill-block">
+      <div class="skill-cat">Domains</div>
+      <div class="pills">
+        <span class="pill">Industrial / Manufacturing Supply Chains</span>
+        <span class="pill">Inbound &amp; Import Logistics</span>
+        <span class="pill">Supplier / Toller Coordination</span>
+        <span class="pill">Cross-Functional Planning</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">04</span><h2>Experience</h2></div>
+
+    <div class="job">
+      <div class="job-when">May 2023 — Dec 2024</div>
+      <div>
+        <div class="job-title">Supply Chain &amp; Inventory Planning Analyst</div>
+        <div class="job-co">Prathista International Inc. <span class="loc">· Houston, TX</span></div>
+        <ul>
+          <li>Ran supply and inventory planning for multi-SKU industrial product lines in <b>SAP S/4HANA</b>, tuning MRP parameters, reorder points, and safety stock against real consumption to meet demand without overstock.</li>
+          <li>Cut <b>$1.2M of excess inventory</b> while holding <b>98%+ accuracy</b> by treating master data as the foundation — reconciling system records to physical reality before trusting any plan.</li>
+          <li>Stood up <b>Power BI and SQL</b> performance-monitoring views for fill rate, lead-time variance, and on-time delivery — giving leadership one source of truth instead of conflicting spreadsheets.</li>
+          <li>Standardized the inbound planning and documentation workflow with <b>Lean and Six Sigma</b>, removing non-value-added steps to compress cycle time <b>18–22%</b>, then documented it for repeatability.</li>
+          <li>Partnered cross-functionally across procurement, warehouse, and supplier teams to keep inbound supply flowing and resolve escalations with data, not anecdotes.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="job-when">Jun 2021 — Apr 2023</div>
+      <div>
+        <div class="job-title">Supply Chain Operations Associate</div>
+        <div class="job-co">Prathista Industries Limited <span class="loc">· Hyderabad, India</span></div>
+        <ul>
+          <li>Executed <b>MRP and capacity planning</b> on the plant floor, syncing production and procurement schedules to cut material shortfalls <b>30%</b> in a complex manufacturing environment.</li>
+          <li>Built <b>SQL reconciliation reporting</b> validating system inventory against physical counts at <b>97%+ accuracy</b>, shortening month-end close.</li>
+          <li>Owned supplier scorecards — OTIF, lead time, defect rate — turning findings into corrective-action plans presented in quarterly business reviews.</li>
+          <li>Analyzed industrial data flows across procurement, WIP, and finished goods to surface bottlenecks, raising throughput <b>15%</b>.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">05</span><h2>Education &amp; Certifications</h2></div>
+    <div class="ec-grid">
+      <div>
+        <div class="edu-item">
+          <div class="edu-deg">M.S., Supply Chain &amp; Logistics Management</div>
+          <div class="edu-meta">University of Houston · Houston, TX · <span class="gpa">GPA 4.0</span> · May 2025</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-deg">B.Tech, Mechanical Engineering</div>
+          <div class="edu-meta">Engineering foundation in systems, operations &amp; process</div>
+        </div>
+      </div>
+      <div>
+        <div class="cert-list">
+          <div class="cert"><span class="cert-mark">↳</span><span class="cert-name">APICS Certified Supply Chain Professional (CSCP)</span></div>
+          <div class="cert"><span class="cert-mark">↳</span><span class="cert-name">Lean Six Sigma Green Belt</span></div>
+          <div class="cert"><span class="cert-mark">↳</span><span class="cert-name">Tableau Certified Data Analyst</span></div>
+          <div class="cert"><span class="cert-mark">↳</span><span class="cert-name">SAP S/4HANA</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="cta">
+  <div class="wrap">
+    <h2>Let's build a better supply chain.</h2>
+    <p>Open to Supply Chain Analyst, Planner, and Business Analyst roles. The fastest way to reach me is email.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="mailto:naveenprabaharan28@gmail.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
+        Email Me
+      </a>
+      <a class="btn btn-ghost" href="tel:+18329306099">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Call
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © <span id="yr"></span> Naveen Prabaharan · Houston, TX
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // Scroll reveal
+  document.querySelectorAll('section').forEach(s=>{
+    if(!s.classList.contains('metrics')) s.classList.add('reveal');
+  });
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // Count-up for metrics
+  const animateNum = (el)=>{
+    const full = el.textContent;
+    const match = full.match(/[\d.]+/);
+    if(!match) return;
+    const target = parseFloat(match[0]);
+    const suffix = full.slice(match.index + match[0].length);
+    const prefix = full.slice(0, match.index);
+    const dur = 1100, start = performance.now();
+    const decimals = (match[0].split('.')[1]||'').length;
+    const step = (now)=>{
+      const p = Math.min((now-start)/dur,1);
+      const eased = 1-Math.pow(1-p,3);
+      const val = (target*eased).toFixed(decimals);
+      el.innerHTML = prefix + val + suffix;
+      if(p<1) requestAnimationFrame(step);
+      else el.innerHTML = full;
+    };
+    requestAnimationFrame(step);
+  };
+  const mio = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){ animateNum(e.target); mio.unobserve(e.target); }
+    });
+  },{threshold:.5});
+  document.querySelectorAll('.mnum').forEach(el=>mio.observe(el));
+</script>
+</body>
+</html>
